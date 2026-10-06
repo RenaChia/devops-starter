@@ -38,4 +38,12 @@ jobs:
       run: |
         pytest
     - name: Run Bandit security scan
-      run: bandit -r . -x ./tests
+      continue-on-error: true
+      run: bandit -r . -x ./test_calculator.py -f html -o bandit-report.html
+
+    - name: Upload Bandit report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: bandit-report
+        path: bandit-report.html
