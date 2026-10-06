@@ -1,2 +1,5 @@
 pytest
+pytest-html
+flake8
 bandit
+pip-audit
