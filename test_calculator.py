@@ -1,14 +1,11 @@
-def add(a, b):
-    return a + b
-def subtract(a, b):
-    return a - b
-def multiply(a, b):
-    return a * b
-def divide(a, b):
-    if b == 0:
-        return "Cannot divide by zero"
-    return a / b
-print("2 + 3 =", add(2, 3))
-print("10 - 4 =", subtract(10, 4))
-print("5 * 3 =", multiply(5, 3))
-print("10 / 2 =", divide(10, 2))
+from calculator import add, subtract, multiply, divide
+def test_add():
+    assert add(2, 3) == 5
+def test_subtract():
+    assert subtract(10, 4) == 6
+def test_multiply():
+    assert multiply(5, 3) == 15
+def test_divide():
+    assert divide(10, 2) == 5
+def test_divide_by_zero():
+    assert divide(10, 0) == "Cannot divide by zero"
